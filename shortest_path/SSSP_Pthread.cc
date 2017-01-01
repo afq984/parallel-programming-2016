@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
     std::vector<std::thread> rfthreads;
     sincelast("init ");
     for (int i = 0; i < num_threads; ++i) {
-        rfthreads.emplace_back(read_file, fp[i], fp[i + 1]);
+        rfthreads.emplace_back(read_file, fp[i] - 1, fp[i + 1]);
     }
     for (auto& thread : rfthreads) {
         thread.join();
